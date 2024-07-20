@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+</head>
+
+<body>
+    <h1>PHP API Request Example</h1>
+    <button onclick="fetchData()">Fetch Data from API</button>
+
+    <div id="response"></div>
+
+    <form id="logout">
+        <button>Logout</button>
+    </form>
+
+    <h3>Update Data</h3>
+    <form id="update">
+        <label for="username" style="padding-block: 10px;">Username</label>
+        <input id="username" name="username" type="text" class="input"><br>
+        <label for="username" style="padding-block: 10px;">Password</label>
+        <input id="username" name="password" type="password" class="input"><br>
+        <label for="username" style="padding-block: 10px;">Enter Old Password</label>
+        <input id="username" name="oldpassword" type="password" class="input"><br>
+        <button>Update/Modify Data</button>
+    </form>
+
+
+
+    <script>
+        function fetchData() {
+            fetch('api/getdata.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('response').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+    </script>
+    <script src="xhr/signup.js"></script>
+</body>
+
+</html>
