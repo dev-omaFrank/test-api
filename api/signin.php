@@ -9,9 +9,6 @@
     }else {
       $post = new Post($dbconn);
       $result = $post->sign_in($username, $password);
-      $_SESSION['username'] = $username;
-      // var_dump($_SESSION);
-      header('Location:../page2.html');
     }
   }
 ?>
